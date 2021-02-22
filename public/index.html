@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="app.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+
+	<title>Ping Pong Counter</title>
+</head>
+
+<body>
+	<div id="all">
+		<!-- Player 1 Wins -->
+		<div id="title">
+			<div id="time">10:21</div>
+			<div id="winner" class="hidden">Player 1 Wins!</div>
+			<div id="gameTitle">
+				Game <span id="gameNumber">1</span>
+			</div>
+			<div id="score">
+				<span class="p1 gamesWon">0</span>
+				-
+				<span class="p2 gamesWon">0</span>
+			</div>
+		</div>
+		<div class="p1 scorecard">
+			Player 1
+			<div class="p1 points">10</div>
+			<svg class="p1" width="200" height="200">
+				<circle cx="100" cy="100" r="100" fill="yellow" />
+			</svg>
+		</div>
+		<div class="p2 scorecard">
+			Player 2
+			<div class="p2 points">8</div>
+			<svg class="p2 hidden" width="200" height="200">
+				<circle cx="100" cy="100" r="100" fill="yellow" />
+			</svg>
+		</div>
+	</div>
+	</div>
+
+</body>
+
+</html>
