@@ -1,0 +1,94 @@
+div#all{
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 1fr 5fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "title title"
+								"left right";
+}
+div#title{
+	grid-area: title;
+	color: white;
+	font-size: 8vw;
+	text-decoration: underline;
+	text-align: center;
+}
+div#game-create, div#game-join{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+form{
+	background-color: white;
+	border-radius: 30px;
+	padding: 10px;
+	margin: 0px 10%;
+	height: 50%;
+	width: 85%;
+	min-width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+form label{
+	position: relative;
+	font-size: 25px;
+	margin: -30px 0px;
+	margin-top: 10px;
+	z-index: 1;
+	top: -55px;
+	transition: top  0.5s ease-in-out;
+	cursor: text;
+
+}
+form input:focus + label,
+form input:valid + label{
+	top: -83px;
+}
+form div#players{
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	align-items: center;
+	width: 1000px;
+	/* height: 500px; */
+}
+form div#players div{
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items:center;
+}
+form input[type="text"],
+form input[type="number"]{
+	outline: none;
+	box-shadow: none;
+	border-style: hidden hidden solid hidden;
+	border-color: #3E3E3E;
+	border-width: 3px;
+	font-size: 20px;
+	display: inline-block;
+	text-align: center;
+	margin: 20px 10px 10px;
+}
+form input[type="text"]{
+	font-size: 22px;
+	font-weight: bold;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+form input[type="submit"]{
+	color: #DD6600;
+	background-color: #3E3E3E;
+	font-size: 30px;
+}
+div#game-create{
+	grid-area: left;
+}
+div#game-join{
+	grid-area: right;
+}

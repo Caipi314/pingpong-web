@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- "../" because the url is "/game/" -->
+	<link rel="stylesheet" href="../CSS/style.css">
+	<script src="../JS/game.js" defer></script>
+	<link rel="stylesheet" href="../CSS/game.css">
+
+	<title>Ping Pong Counter</title>
+</head>
+
+<body>
+	<div id="all">
+		<div id="title">
+			<div id="time">0:00</div>
+			<div id="winner" class="hidden">Player 1 Wins!</div>
+			<div id="gameTitle">
+				Game <span id="gameNumber">1</span>
+			</div>
+			<div id="score">
+				<span class="p1 gamesWon">0</span>
+				-
+				<span class="p2 gamesWon">0</span>
+			</div>
+		</div>
+		<div class="p1 scorecard">
+			<span class="name"></span>
+			<div class="p1 points"></div>
+			<!-- have ball animate to the other side -->
+			<svg class="p1" width="200" height="200">
+				<circle cx="100" cy="100" r="100" fill="yellow" />
+			</svg>
+		</div>
+		<div class="p2 scorecard">
+			<span class="name"></span>
+			<div class="p2 points"></div>
+			<svg class="p2 hidden" width="200" height="200">
+				<circle cx="100" cy="100" r="100" fill="yellow" />
+			</svg>
+		</div>
+	</div>
+	</div>
+
+</body>
+
+</html>
