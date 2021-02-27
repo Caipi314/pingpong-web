@@ -2,6 +2,8 @@ div#all{
 	width:100vw;
 	height:100vh;
 	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	/* grid-template-columns: 1fr 1.5fr 1fr; */
 	grid-template-areas: "left title right";
 }
 div#title{
@@ -20,6 +22,8 @@ div#winner{
 	background-color: white;
 	border-radius: 20px;
 	padding: 7px;
+	position: absolute;
+	top: 10%;
 }
 div#winner.hidden{
 	display: none;
@@ -37,11 +41,32 @@ div.scorecard{
 	justify-content: center;
 	cursor: pointer;
 }
+
+div.p1.scorecard{	grid-area: left; }
+div.p2.scorecard{ grid-area: right; }
+svg#indicator{
+	position: relative;
+	top: 250px;
+	left: 100%;
+	/* left: 127%; */
+	transform: translate(0%, -50%);
+	cursor: default;
+	transition: left 1s ease-in-out;
+}
+svg#indicator.p1{
+	left: 0px;
+}
+svg#indicator.p2{
+	left: 200%;
+	/* left: 254%; */
+}
 @media only screen and (max-width: 1000px){
 	div#all{
 		grid-template-areas: "title title"
 									"left right";
 		grid-template-rows: 1fr 2fr;
+		grid-template-columns: 1fr 1fr;
+		width: 100vw;
 	}
 	div#title{
 		font-size: 15vw;
@@ -50,16 +75,15 @@ div.scorecard{
 		font-size: 12vw;
 		justify-content: start;
 	}
-}
-div.p1.scorecard{
-	grid-area: left;
-	/* border-style: dashed; */
-	/* background-color: green; */
-}
-div.p2.scorecard{
-	grid-area: right;
-	/* background-color: blue; */
-}
-svg.hidden{
-	opacity: 0%;
+	svg#indicator{
+		left: 50%;
+		top: 0px;
+		transform: translate(0%,0%);
+	}
+	svg#indicator.p1{
+		left: 0%;
+	}
+	svg#indicator.p2{
+		left: 100%;
+	}
 }

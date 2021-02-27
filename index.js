@@ -1,29 +1,46 @@
 const fs = require('fs');
 // const { body, validationResult } = require('express-validator');
-const express = require('express')
-const app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 
+const app = express();
 app.use(express.static('public'))
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// console.log('object')
+const get = (name, extension = 'json') =>
+	JSON.parse(fs.readFileSync(`./${name}.${extension}`));
+const set = (vari, extension = 'json') => {
+	const [name, data] = Object.entries(vari)[0];
+	fs.writeFileSync(`./${name}.${extension}`, JSON.stringify(data, null, 2));
+}
+
 app.get('/', (req, res) => {
-	// res.sendFile(path.join(__dirname + '\\public\\index.html'));
-	res.sendFile(path.join(__dirname + '\\public\\index.html'));
+	res.sendFile(path.join(__dirname + '/public/index.html'));
 })
 app.get('/game', (req, res) => {
-	// res.sendFile(path.join(__dirname + '\\public\\game.html'));
 	res.sendFile(path.join(__dirname + '/public/game.html'));
 })
-app.post('/createGame', (req, res) => {
-	const p1 = req.body.p1;
-	const p2 = req.body.p2;
-	const ptsToWin = req.body.ptsToWin;
-	const servesPerPlayer = req.body.servesPerPlayer;
-	const bestOf = req.body.bestOf;
-	// console.log({ p1, p2, ptsToWin, servesPerPlayer, bestOf })
-	res.redirect(`/game/?P1=${p1}&P2=${p2}&PTW=${ptsToWin}&SP=${servesPerPlayer}&BOf=${bestOf}`);
+app.post('/updateStats', (req, res) => {
+	var { pNames, points, games } = req.body;
+	if (pNames === undefined) { return console.log("WOAH body is undefined") }
+
+	const log = get('log');
+	pNames.forEach((name, pNum) => {
+		name = name.toUpperCase().trim();
+		if (Object.keys(log).includes(name)) {
+			log[name].games += games[pNum];
+			log[name].points += points[pNum];
+		} else {
+			log[name] = {
+				"games": games[pNum],
+				"points": points[pNum],
+			}
+		}
+	});
+	set({ log });
+	res.sendStatus(200);
 })
 
 app.listen((port = (process.env.PORT || 3000)), () => {

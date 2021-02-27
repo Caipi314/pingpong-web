@@ -17,26 +17,26 @@
 	<div id="all">
 		<div id="title" class="underline">Ping Pong Counter</div>
 		<div id="game-create">
-			<form id="create-game" action="/createGame" method="post">
+			<form id="create-game" action="/game" method="GET">
 				<div id="players">
 					<div>
-						<input required type="text" id="p1" name="p1">
-						<label for="p1">Player 1's Name</label>
+						<input required type="text" id="P1" name="P1">
+						<label for="P1">Player 1's Name</label>
 					</div>
 					<div>
-						<input required type="text" id="p2" name="p2">
-						<label for="p2">Player 2's Name</label>
+						<input required type="text" id="P2" name="P2">
+						<label for="P2">Player 2's Name</label>
 					</div>
 				</div>
 
-				<input type="number" id="ptsToWin" name="ptsToWin" required>
-				<label for="ptsToWin">Points To Win</label>
+				<input type="number" id="PTW" name="PTW" required>
+				<label for="PTW">Points To Win</label>
 
-				<input type="number" id="servesPerPlayer" name="servesPerPlayer" required>
-				<label for="servesPerPlayer">Serves Per Player</label>
+				<input type="number" id="SP" name="SP" required>
+				<label for="SP">Serves Per Player</label>
 
-				<input type="number" id="bestOf" name="bestOf" required>
-				<label for="bestOf">Best Of</label>
+				<input type="number" id="BOf" name="BOf" required>
+				<label for="BOf">Best Of</label>
 
 				<input type="submit" value="Play">
 			</form>

@@ -1,1 +1,10 @@
-{}
+{
+  "CAI": {
+    "games": 10,
+    "points": 15
+  },
+  "TEST": {
+    "games": 2,
+    "points": 3
+  }
+}
